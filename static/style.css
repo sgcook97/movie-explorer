@@ -1,0 +1,161 @@
+html,
+body {
+    font-family: "Source Code Pro", Helvetica, sans-serif;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    height: 90px;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    background-color: black;
+    color: white;
+    z-index: 5;
+}
+
+header h1 {
+    margin: 5px 0 0 0;
+    padding: 0;
+    color: white;
+}
+
+header h1 a:link {
+    color: white;
+    text-decoration: none;
+}
+
+header h1 a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+header h1 a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.search-bar form {
+    display: flex;
+    margin: 5px;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar select {
+    margin: 0;
+    border: 0;
+    border-radius: 50px 0 0 50px;
+    background-color: rgb(66, 64, 64);
+    color: white;
+    height: 23px;
+    opacity: 0.7;
+}
+
+.input {
+    margin: 0;
+    width: 400px;
+    border: 0;
+    background-color: white;
+    color: black;
+    outline: none;
+    height: 20px;
+}
+
+.button {
+    margin: 0;
+    border: 0;
+    border-radius: 0 50px 50px 0;
+    cursor: pointer;
+    background-color: rgb(66, 64, 64);
+    color: white;
+    height: 23px;
+    opacity: 0.7;
+}
+
+::-webkit-input-placeholder {
+    color: rgb(58, 57, 57);
+    font-family: "Source Code Pro", Helvetica, sans-serif;
+}
+
+::-ms-input-placeholder {
+    color: rgb(58, 57, 57);
+    font-family: "Source Code Pro", Helvetica, sans-serif;
+}
+
+::-moz-input-placeholder {
+    color: rgb(58, 57, 57);
+    font-family: Helvetica, sans-serif;
+}
+
+.movies {
+    margin: 0 25px;
+    position: relative;
+    top: 90px;
+    min-height: calc(100% - 150px);
+    display: flex;
+    justify-content: center;
+}
+
+.movies a:link {
+    color: black;
+    text-decoration: none;
+}
+
+.movies a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+.movies a:hover {
+    color: magenta;
+    text-decoration: none;
+}
+
+.movie-container {
+    border: 2px solid black;
+    padding: 15px;
+    margin: 10px;
+    min-height: 700px;
+    max-height: 1500px;
+    width: auto;
+    min-width: 300px;
+}
+
+.info {
+    max-width: 550px;
+}
+
+.movies h2 {
+    font-size: 34px;
+    margin: 0;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+}
+
+footer {
+    font-size: 12px;
+    position: relative;
+    top: 95px;
+    text-align: center;
+    background-color: black;
+    display: inline-flex;
+    justify-content: center;
+    color: white;
+    width: 100%;
+}

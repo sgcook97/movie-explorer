@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1><a href="/">Movie Explorer</a></h1>
+        <div class="search-bar">
+            <form method="GET">
+                <select name="selection">
+                    <option value="movie">Movie</option>
+                    <option value="actor">Actor</option>
+                </select>
+                <input type="text" class="input" name="input" placeholder="Search Movies or Actors">
+                <input type="submit" class="button" value="Search">
+            </form>
+        </div>
+    </header>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="flash">
+        {% for message in messages %}
+        <span>{{ message }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <div class="movies">
+
+        <div class="movie-container">
+            <h2><a href="{{ movie_wiki }}">{{ title }}</a></h2>
+            <div class="info">
+                <h3>{{ tagline }}</h3>
+                <p>Genres:
+                    {% if genres|length > 1 %}
+                    {% for i in range(genres|length - 2) %}
+                    {{ genres[i]["name"] }},
+                    {% endfor %}
+                    {{ genres[-1]["name"] }}
+                    {% elif genres|length == 1 %}
+                    {{ genres[0]["name"] }}
+                    {% else %}
+                    Unknown
+                    {% endif %}
+                </p>
+            </div>
+            <div class="image">
+                {% if poster_url %}
+                <img src="{{ poster_url }}">
+                {% else %}
+                <h2>No Poster Available</h2>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Sam Cook<br>CS 3398</p>
+    </footer>
+</body>
+
+</html>
