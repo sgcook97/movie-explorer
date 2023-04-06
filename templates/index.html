@@ -8,7 +8,14 @@
 
 <body>
     <header>
-        <h1><a href="/">Movie Explorer</a></h1>
+        <div class="title-bar">
+            <h1><a href="/">Movie Explorer</a></h1>
+            {% if not current_user.is_authenticated %}
+            <h3><a href="{{ url_for('login') }}">Login</a>/<a href="{{ url_for('signup') }}">Sign Up</a></h3>
+            {% else %}
+            <h3><a href="{{ url_for('logout') }}">Logout</a></h3>
+            {% endif %}
+        </div>
         <div class="search-bar">
             <form method="GET">
                 <select name="selection">
@@ -59,6 +66,27 @@
             </div>
         </div>
 
+        <div class="comments">
+            <h3>Leave a review:</h3>
+            <form method="POST">
+                <span>Movie ID</span>
+                <input type="text" class="movie-id" name="movie-id" value="{{ movieID }}" readonly><br>
+                <div class="comment-submit">
+                    <input type="text" class="comment-box" name="comment" placeholder="Do not exceed 100 characters">
+                    <input type="submit" class="post-comment" value="Comment">
+                </div>
+            </form>
+            {% if comments %}
+            <div class="comment-section">
+                {% for comment in comments %}
+                <div id="comment-box">
+                    <p>{{ comment.comment }}<br>- {{ comment.username }}</p>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        
     </div>
 
     <footer>

@@ -10,7 +10,7 @@ body {
 header {
     position: fixed;
     top: 0;
-    height: 90px;
+    height: 100px;
     width: 100%;
     display: inline-block;
     text-align: center;
@@ -19,23 +19,58 @@ header {
     z-index: 5;
 }
 
-header h1 {
+header .title-bar {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.title-bar h1 {
+    text-align: center;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.title-bar h3 {
+    margin-right: 10px;
+    text-align: end;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.title-bar h1 {
     margin: 5px 0 0 0;
     padding: 0;
     color: white;
 }
 
-header h1 a:link {
+.title-bar h1 a:link {
     color: white;
     text-decoration: none;
 }
 
-header h1 a:visited {
+.title-bar h1 a:visited {
     color: white;
     text-decoration: none;
 }
 
-header h1 a:hover {
+.title-bar h1 a:hover {
+    color: rgba(255, 255, 255, 0.652);
+    text-decoration: none;
+}
+
+.title-bar h3 {
+    color: white;
+}
+
+.title-bar h3 a:link {
+    color: white;
+}
+
+.title-bar h3 a:visited {
+    color: white;
+}
+
+.title-bar h3 a:hover {
     color: white;
     text-decoration: none;
 }
@@ -94,13 +129,26 @@ header h1 a:hover {
     font-family: Helvetica, sans-serif;
 }
 
+.container {
+    margin: 0 25px;
+    position: relative;
+    top: 100px;
+    min-height: calc(100% - 150px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
 .movies {
     margin: 0 25px;
     position: relative;
-    top: 90px;
+    top: 100px;
     min-height: calc(100% - 150px);
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .movies a:link {
@@ -158,4 +206,94 @@ footer {
     justify-content: center;
     color: white;
     width: 100%;
+}
+
+@media only screen and (max-width: 640px) {
+    header {
+        height: 130px;
+    }
+
+    .container {
+        top: 130px;
+    }
+
+    .movies {
+        top: 130px;
+    }
+}
+
+
+.login {
+    border: 2px solid black;
+    height: 250px;
+    width: 350px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: space-around;
+}
+
+.login h2 {
+    text-align: center;
+}
+
+.flash {
+    position: relative;
+    text-align: center;
+    top: 100px;
+    margin: 20px;
+}
+
+.comments {
+    border: 2px solid black;
+    margin: 10px;
+    margin-bottom: 20px;
+    width: 400px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.comments h3 {
+    text-align: center;
+}
+
+
+.comments form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.comment-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comment-box {
+    width: 300px;
+    height: 26px;
+    margin: 10px;
+    margin-right: 0;
+    border: 1px solid #a1a1a1;
+    border-radius: 2px 0 0 2px;
+}
+
+.post-comment {
+    font-family: "Source Code Pro", Helvetica, sans-serif;;
+    margin: 0;
+    border: 0;
+    height: 30px;
+    cursor: pointer;
+    background-color: black;
+    color: #ffffff;
+    border-radius: 0 2px 2px 0;
+}
+
+input:focus {
+    outline: none;
 }
