@@ -13,18 +13,17 @@
         </div>
     </header>
 
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="flash">
+        {% for message in messages %}
+        <span>{{ message }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
 
     <div class="container">
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <div class="flash">
-            {% for message in messages %}
-            <span>{{ message }}</span>
-            {% endfor %}
-        </div>
-        {% endif %}
-        {% endwith %}
-
         <div class="login">
             <h2>Sign up using a unique username.</h2>
             <br>
