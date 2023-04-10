@@ -1,6 +1,6 @@
 # Movie Explorer
 
-This web app can be reached at https://movie-explorer.fly.dev 
+This web app can be reached at https://movie-explorer2.fly.dev 
 
 This project is a web app using flask and fly.io that allows the user to either see information from one of a few of my favorite movies, search for a movie by title, or search an actors name which will cause a random movie with that actor to be displayed. This information is retrieved using  TMDB API and the MediaWiki API.
 

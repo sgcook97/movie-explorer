@@ -1,4 +1,4 @@
-# fly.toml file generated for movie-explorer2 on 2023-04-05T23:32:43-05:00
+# fly.toml file generated for movie-explorer2 on 2023-04-06T17:16:19-05:00
 
 app = "movie-explorer2"
 kill_signal = "SIGINT"
@@ -6,7 +6,11 @@ kill_timeout = 5
 primary_region = "dfw"
 processes = []
 
+[build]
+  builder = "paketobuildpacks/builder:base"
+
 [env]
+  PORT = "8080"
 
 [experimental]
   auto_rollback = true
@@ -18,7 +22,7 @@ processes = []
   protocol = "tcp"
   script_checks = []
   [services.concurrency]
-    hard_limit = 25
+    hard_limit = 35
     soft_limit = 20
     type = "connections"
 
@@ -33,6 +37,6 @@ processes = []
 
   [[services.tcp_checks]]
     grace_period = "1s"
-    interval = "15s"
+    interval = "25s"
     restart_limit = 0
     timeout = "2s"
