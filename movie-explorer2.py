@@ -15,6 +15,10 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
 
+app.secret_key = os.getenv("SECRET_KEY")
+app.config["SESSION_TYPE"] = "filesystem"
+# app.run()
+
 @login_manager.user_loader
 def load_user(user_id):
     return Person.query.get(int(user_id))
@@ -276,10 +280,3 @@ def signup():
 def logout():
     logout_user()
     return redirect(url_for('index'))
-
-if __name__ == "__main__":
-    load_dotenv(find_dotenv())
-    app.secret_key = os.getenv("SECRET_KEY")
-    app.config["SESSION_TYPE"] = "filesystem"
-    # app.run()
-
